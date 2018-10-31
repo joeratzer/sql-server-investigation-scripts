@@ -1,6 +1,6 @@
 create function dbo.AcceptableCharacters 
 (
-  @input nvarchar(200)
+	@input nvarchar(200)
 )
 returns bit
 as
@@ -13,10 +13,10 @@ begin
 	
 	--- change acceptableCharacters to whatever characters are acceptable for the scenario
 	declare @acceptableCharacters char(200) = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890-. ''';
-  declare @index int = 1;
+	declare @index int = 1;
 	
 	while @index <= len(@input)
-  begin
+  	begin
 		if charindex(substring(@input, @index, 1), @acceptableCharacters) = 0
 		begin
 			set @allAcceptable = 0;
@@ -27,7 +27,7 @@ begin
 			set @allAcceptable = 1;
 			set @index = @index+1;
 		end
-  end
+  	end
 
 	return @allAcceptable
 
