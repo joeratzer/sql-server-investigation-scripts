@@ -1,7 +1,7 @@
-select t.name as objectName, 
-    c.name as catalogName,
-    cl.name as columnName,
-    i.name as uniqueIndexName
+select t.name as object_name, 
+    c.name as catalog_name,
+    cl.name as column_name,
+    i.name as unique_index_name
 from sys.objects t 
 inner join sys.fulltext_indexes fi on t.[object_id] = fi.[object_id] 
 inner join sys.fulltext_index_columns fic on fic.[object_id] = t.[object_id]
